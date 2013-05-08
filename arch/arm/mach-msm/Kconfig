@@ -168,6 +168,7 @@ config ARCH_MSM8960
 	select MULTI_IRQ_HANDLER
 	select MSM_PM8X60 if PM
 	select HOLES_IN_ZONE if SPARSEMEM
+	select MSM_KRAIT_WFE_FIXUP
 
 config ARCH_MSM8930
 	bool "MSM8930"
@@ -205,6 +206,7 @@ config ARCH_MSM8930
 	select MULTI_IRQ_HANDLER
 	select MSM_PM8X60 if PM
 	select HOLES_IN_ZONE if SPARSEMEM
+	select MSM_KRAIT_WFE_FIXUP
 
 config ARCH_APQ8064
 	bool "APQ8064"
@@ -222,6 +224,7 @@ config ARCH_APQ8064
 	select MULTI_IRQ_HANDLER
 	select MSM_PM8X60 if PM
 	select HOLES_IN_ZONE if SPARSEMEM
+	select MSM_KRAIT_WFE_FIXUP
 
 config ARCH_MSMCOPPER
 	bool "MSM Copper"
@@ -310,6 +313,9 @@ config  ARCH_MSM_SCORPIONMP
 config  ARCH_MSM_KRAITMP
 	select ARCH_MSM_KRAIT
 	select MSM_SMP
+	bool
+
+config  MSM_KRAIT_WFE_FIXUP
 	bool
 
 config  ARCH_MSM_CORTEX_A5
@@ -533,8 +539,8 @@ config MACH_SEMC_ANZU
 
 config MACH_SEMC_IYOKAN
 	depends on ARCH_MSM7X30
-	select FB_MSM_HDPI
 	depends on !MSM_STACKED_MEMORY
+	select FB_MSM_HDPI
 	select SUPPORT_ALIEN_USB_CHARGER
 	default y
 	bool "SonyEricsson Iyokan"
@@ -2261,6 +2267,26 @@ config MSM_CACHE_DUMP
 	  Add infrastructure to dump the L1 and L2 caches to an allocated buffer.
 	  This allows for analysis of the caches in case cache corruption is
 	  suspected.
+
+config MSM_UNDERVOLT_LCD
+	bool "Undervolt LCD"
+	help
+	  Undervolt LCD from 2850 to 2300 mV to reduce energy consumption
+
+config MSM_UNDERVOLT_PROXIMITY
+	bool "Undervolt proximity sensor"
+	help
+	  Undervolt proximity sensor from 2900 to 2400 mV to reduce energy consumption
+
+config MSM_UNDERVOLT_WIFI
+	bool "Undervolt Wi-Fi"
+	help
+	  Undervolt Wi-Fi from 2750/2850 to 2050/2150 mV to reduce energy consumption
+
+config MSM_UNDERVOLT_TOUCH
+	bool "Undervolt touch panel"
+	help
+	  Undervolt touch panel from 3050 to 2800 mV to reduce energy consumption
 
 config MSM_DCVS
 	bool "Use MSM DCVS for CPU/GPU Frequency control"
