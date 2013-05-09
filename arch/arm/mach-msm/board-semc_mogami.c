@@ -196,7 +196,7 @@
 #include "pm.h"
 
 
-#define MSM_PMEM_SF_SIZE  0x1600000
+#define MSM_PMEM_SF_SIZE  0x1C00000
 
 #ifdef CONFIG_FB_MSM_TRIPLE_BUFFER
 #define MSM_FB_PRIM_BUF_SIZE   (864 * 480 * 4 * 3) /* 4bpp * 3 Pages */
