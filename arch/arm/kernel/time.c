@@ -51,7 +51,8 @@ EXPORT_SYMBOL(rtc_lock);
 /* change this if you have some constant time drift */
 #define USECS_PER_JIFFY	(1000000/HZ)
 
-#ifdef CONFIG_SMP
+//remove frame_pointer
+#if 0
 unsigned long profile_pc(struct pt_regs *regs)
 {
 	struct stackframe frame;
